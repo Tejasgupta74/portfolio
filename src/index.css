@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0A0B0E;
+  color: #F0F2F5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Onest', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0A0B0E;
+  color: #F0F2F5;
+  overflow-x: hidden;
+}
+
+/* Neon Glow Mode triggered by pull cord */
+html.neon-glow {
+  --neon-accent: #00FFB2;
+}
+html.neon-glow .border-accent {
+  box-shadow: 0 0 35px rgba(0, 255, 178, 0.4);
+}
+
+/* Glassmorphic card surface */
+.glass-panel {
+  background: rgba(18, 21, 28, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel:hover {
+  border-color: rgba(0, 229, 160, 0.3);
+}
+
+/* Shimmer effect for ability card */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.shimmer-sweep {
+  animation: shimmer 6s infinite linear;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0B0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #1F2430;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00E5A0;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #00E5A0;
+  outline-offset: 3px;
+}
+
+/* Selection */
+::selection {
+  background-color: #00E5A0;
+  color: #0A0B0E;
+}
+
+/* Hide scrollbar for horizontal swipe sections */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
